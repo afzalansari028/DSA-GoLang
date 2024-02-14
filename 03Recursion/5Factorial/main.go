@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	ans := Factorial(4)
+	ans := Factorial(5)
 	fmt.Println(ans)
 }
 
@@ -12,6 +12,9 @@ func Factorial(n int) int {
 		return 1
 	}
 
-	fact := n * Factorial(n-1)
+	fact_nm1 := Factorial(n - 1)
+
+	fact := n * fact_nm1
+
 	return fact
 }
