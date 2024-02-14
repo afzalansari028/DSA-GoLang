@@ -8,11 +8,13 @@ func main() {
 	fmt.Println(ans)
 
 }
+
 func Power(a, n int) int {
 
 	if n == 0 {
 		return 1
 	}
 	pnm1 := Power(a, n-1)
-	return a * pnm1
+	pn := a * pnm1
+	return pn
 }
