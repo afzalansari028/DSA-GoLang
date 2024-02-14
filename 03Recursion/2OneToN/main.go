@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	OneToN(5)
+	OneToN(5) // print 1 2 3 4 5
 }
 
 func OneToN(n int) {

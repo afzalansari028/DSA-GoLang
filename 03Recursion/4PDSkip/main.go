@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	PrintDecSkip(5)
+	PrintDecSkip(5) //print 5 4 1 2 4
 }
 
 func PrintDecSkip(n int) {

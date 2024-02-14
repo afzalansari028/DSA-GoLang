@@ -3,14 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	OneToN(5)
+	NToOne(5) //print 5 4 3 2 1
 }
 
-func OneToN(n int) {
+func NToOne(n int) {
 
 	if n == 0 {
 		return
 	}
 	fmt.Println(n)
-	OneToN(n - 1)
+	NToOne(n - 1)
 }
