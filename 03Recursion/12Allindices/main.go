@@ -13,6 +13,7 @@ func main() {
 
 }
 
+//find the indeces where the element exist
 func ALLindices(arr []int, si, data, count int) []int {
 	var indices []int
 
