@@ -1,50 +1,38 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
-	PDI(5)
+
+	arr := []int{9}
+
+	PlusOne(arr)
 
 }
+func PlusOne(arr []int) {
 
-func PDI(n int) {
+	if len(arr) == 1 && arr[len(arr)-1]+1 > 9 {
+		var arr1 [2]int
+		val := arr[0]
+		ans := val + 1
+		ansString := strconv.Itoa(ans)
 
-	if n == 0 {
-		return
+		arr1[0] = int(ansString[0] - '0')
+		arr1[1] = int(ansString[1] - '0')
+
+		fmt.Println("arr1::", arr1)
 	}
-	if n%2 != 0 {
-		fmt.Println(n)
+
+	if arr[len(arr)-1]+1 > 9 {
+		arr[len(arr)-1] = 0
+		arr[len(arr)-2] = arr[len(arr)-2] + 1
+	} else {
+		arr[len(arr)-1] = arr[len(arr)-1] + 1
 	}
-	PDI(n - 1)
-	if n%2 == 0 {
-		fmt.Println(n)
-	}
+
+	fmt.Println("arr::", arr)
+
 }
-
-// func searchInsert(nums []int, target int) int {
-// 	var ans int
-// 	var i int
-
-// 	if len(nums) == 0 || target <= nums[0] {
-// 		ans = 0
-// 		return ans
-// 	}
-
-// 	for i = 0; i < len(nums); i++ {
-// 		fmt.Println(i)
-// 		index := i
-// 		if nums[i] == target {
-// 			return i
-// 		}
-// 		if target > nums[index] && target < nums[index+1] {
-// 			return i + 1
-// 		}
-// 	}
-// 	fmt.Println("32")
-// 	if i == len(nums)-1 {
-// 		ans = len(nums)
-// 		return ans
-// 	}
-
-// 	return ans
-// }
