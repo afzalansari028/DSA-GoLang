@@ -16,6 +16,7 @@ func main() {
 
 	stack.Display()
 	stack.Pop()
+	stack.Pop()
 	stack.Display()
 
 	fmt.Println("isempty::", stack.IsEmpty())
@@ -48,7 +49,8 @@ func (stack *Stack) Push(val int) {
 // remove the element from top
 func (stack *Stack) Pop() int {
 	if stack.Size() == 0 {
-		fmt.Print("STACK IS EMPTY")
+		fmt.Println("STACK IS EMPTY")
+		return 0
 	}
 	rv := len(stack.data) - 1
 	stack.data = stack.data[:len(stack.data)-1]
@@ -58,7 +60,8 @@ func (stack *Stack) Pop() int {
 
 func (stack *Stack) Peek() int {
 	if stack.Size() == 0 {
-		fmt.Print("STACK IS EMPTY")
+		fmt.Println("STACK IS EMPTY")
+		return 0
 	}
 	rv := stack.data[len(stack.data)-1]
 	return rv
@@ -69,5 +72,5 @@ func (stack *Stack) Display() {
 	for i := len(stack.data) - 1; i >= 0; i-- {
 		fmt.Println(stack.data[i])
 	}
-	fmt.Println("END")
+	fmt.Println("---END---")
 }
