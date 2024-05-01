@@ -15,6 +15,8 @@ func main() {
 	stack.Push(50)
 
 	stack.Display()
+	stack.Pop()
+	stack.Display()
 
 	fmt.Println("isempty::", stack.IsEmpty())
 	fmt.Println("size::", stack.Size())
