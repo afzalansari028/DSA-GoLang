@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	fmt.Println("let's play with stack using golang")
@@ -11,8 +13,6 @@ func main() {
 	stack.Push(10)
 	stack.Push(20)
 	stack.Push(30)
-	stack.Push(40)
-	stack.Push(50)
 
 	stack.Display()
 	stack.Pop()
@@ -21,7 +21,6 @@ func main() {
 
 	fmt.Println("isempty::", stack.IsEmpty())
 	fmt.Println("size::", stack.Size())
-	fmt.Println("peek::", stack.Peek())
 }
 
 type Stack struct {
@@ -37,7 +36,7 @@ func (stack *Stack) IsEmpty() bool {
 	return stack.Size() == 0
 }
 
-//add an element into the stack
+// add an element into the stack
 func (stack *Stack) Push(val int) {
 	if stack.Size() == 5 {
 		fmt.Println("STACK IS FULL")
