@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-	str := "}[{()[]}]{"
+	str := ")"
 
 	if IsBalanced(str) {
 		fmt.Println("Balanced")
@@ -34,17 +34,23 @@ func IsBalanced(str string) bool {
 				if ch == "]" {
 					if stack.Peek() == "[" {
 						stack.Pop()
+					} else {
+						return false
 					}
-				}
-				if ch == "}" {
+				} else if ch == "}" {
 					if stack.Peek() == "{" {
 						stack.Pop()
+					} else {
+						return false
 					}
-				}
-				if ch == ")" {
+				} else if ch == ")" {
 					if stack.Peek() == "(" {
 						stack.Pop()
+					} else {
+						return false
 					}
+				} else {
+					// do nothing
 				}
 			}
 		}
