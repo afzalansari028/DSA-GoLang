@@ -20,7 +20,8 @@ func main() {
 	// tail := ll.RemoveLastNode()
 	// fmt.Println("tail--", tail)
 
-	ll.RemoveKthNode(3)
+	rv := ll.RemoveKthNode(3)
+	fmt.Println("deleted data::", rv)
 
 	// ll.RemoveLastNode()
 	ll.Display()
@@ -135,22 +136,26 @@ func (ll *LinkedList) RemoveLastNode() int {
 }
 
 //delete any element
-func (ll *LinkedList) RemoveKthNode(k int) {
-	// var rv int
+func (ll *LinkedList) RemoveKthNode(k int) int {
+	var rv int
 	if k == 1 {
-		// rv = ll.head.Data
+		rv = ll.head.Data
 		ll.head = ll.head.next
-		return
+		// return rv
 	}
 
 	var temp *Node
 	temp = ll.head
 	count := 1
 	for temp != nil {
+		// fmt.Println(temp.next.Data)
 		count++
 		if count == k { //k==3
+			rv = temp.next.Data
 			temp.next = temp.next.next
+			break
 		}
 		temp = temp.next
 	}
+	return rv
 }
