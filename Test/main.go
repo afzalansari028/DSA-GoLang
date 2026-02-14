@@ -1,75 +1,41 @@
 package main
 
 import (
-	"errors"
 	"fmt"
+	"math"
 )
 
-// fake db
-var users []User = []User{
-	{Id: 10, Name: "Hardik"},
-	{Id: 20, Name: "Virat"},
-	{Id: 30, Name: "Sanjuj"},
-}
-
-// interface
-type UserRepository interface {
-	GetById(id int) (User, error)
-}
-
-// user type
-type User struct {
-	Id   int
-	Name string
-}
-
-type UserService struct {
-	repo UserRepository
-}
-
-// implementation
-type fakeRepository struct{}
-
-func (f *fakeRepository) GetById(id int) (User, error) {
-
-	for _, user := range users {
-		if user.Id == id {
-			return user, nil
-		}
-	}
-	return User{}, errors.New("User not found in db")
-}
-
-// constructor - initialize user service
-func NewUserService(repo UserRepository) *UserService {
-	return &UserService{
-		repo: repo,
-	}
-}
-
-// business logic function
-func (service *UserService) GetUser(id int) (User, error) {
-
-	user, err := service.repo.GetById(id)
-	if err != nil {
-		fmt.Println("Errr occured while fetching")
-		return User{}, errors.New("Errr occured while fetching")
-	}
-	return user, nil
-}
-
 func main() {
+	srcNum := 1011
+	srcBase := 2
 
-	fmt.Println("users", users)
+	result := AnyBaseToDecimal(srcNum, srcBase)
+	fmt.Println("resulta::", result)
 
-	fakeRepo := &fakeRepository{}
-	service := NewUserService(fakeRepo)
+	Power(2, 6)
 
-	user, err := service.GetUser(10)
-	if err != nil {
-		fmt.Println("err::", err)
-		return
+}
+
+func AnyBaseToDecimal(srcNum, srcBase int) int {
+	res := 0
+	var k float64 = 0
+	srcB := float64(srcBase)
+	for srcNum != 0 {
+		ld := srcNum % 10
+		basewithPower := math.Pow(srcB, k)
+		res = res + ld*int(basewithPower)
+		k++
+		srcNum = srcNum / 10
 	}
-	fmt.Println("user::::::", user)
+	return res
+}
 
+// Power function
+func Power(x, y int) {
+
+	var res int = 1
+	for i := 0; i < y; i++ {
+		res = res * x
+	}
+	fmt.Println("res--", res)
 }

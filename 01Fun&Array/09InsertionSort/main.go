@@ -10,16 +10,16 @@ func main() {
 
 func InsertionSorting(arr []int) {
 
-	for i := 1; i < len(arr); i++ {
+	for counter := 1; counter < len(arr); counter++ {
 
-		temp := arr[i]
-		j := i - 1
+		val := arr[counter]
 
-		for j >= 0 && arr[j] > temp {
+		j := counter - 1
+		for j >= 0 && arr[j] > val {
 			arr[j+1] = arr[j]
 			j--
 		}
-		arr[j+1] = temp
+		arr[j+1] = val
 	}
 	fmt.Println("arr::", arr)
 }
